@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "create_no_entities",
+  "version": "${version}",
+  "name": "Create: No Entities",
+  "description": "This mod adds new recipes that do not require entities!",
+  "authors": [
+    "Karotte128"
+  ],
+  "contact": {
+    "sources": "https://github.com/Karotte128/create_no_entities"
+  },
+  "license": "GPL",
+  "icon": "assets/create_no_entities/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.karotte128.create_no_entities.CreateNoEntities"
+    ]
+  },
+  "mixins": [
+    "create_no_entities.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_api_version}",
+    "create": "${create_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}

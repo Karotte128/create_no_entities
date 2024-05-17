@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"create_no_entities:liquid_egg",
+		"create_no_entities:flowing_liquid_egg"
+	]
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "create_no_entities:fluid/liquid_egg"
+    }
+  }
+}

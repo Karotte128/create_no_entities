@@ -1,0 +1,5 @@
+{
+  "textures": {
+    "particle": "create_no_entities:block/liquid_egg_still"
+  }
+}

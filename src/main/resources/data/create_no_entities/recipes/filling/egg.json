@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "create_no_entities:eggshell"
+    },
+    {
+      "fluid": "create_no_entities:liquid_egg",
+      "amount": 2025,
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:egg"
+    }
+  ]
+}
