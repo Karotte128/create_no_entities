@@ -1,0 +1,16 @@
+{
+	"type": "create:compacting",
+	"heatRequirement": "heated",
+	"ingredients": [
+	  {
+		"fluid": "milk:still_milk",
+		"amount": 81000
+	  }
+	],
+	"results": [
+	  {
+		"item": "create_no_entities:milk_powder",
+		"count": 1
+	  }
+	]
+  }
