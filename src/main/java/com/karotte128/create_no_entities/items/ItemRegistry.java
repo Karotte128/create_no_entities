@@ -12,5 +12,7 @@ public class ItemRegistry {
 
     public static final ItemEntry<Item> EGG_SHELL = REGISTRATE.item("eggshell", Item::new).register();
     public static final ItemEntry<Item> EGG_YOLK = REGISTRATE.item("egg_yolk", Item::new).register();
+
+    public static final ItemEntry<Item> MILK_POWDER = REGISTRATE.item("milk_powder", Item::new).register();
 	public static void register() {}
 }

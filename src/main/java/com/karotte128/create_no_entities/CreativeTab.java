@@ -24,6 +24,8 @@ public class CreativeTab {
             entries.accept(FluidRegistry.LIQUID_EGG.get().getBucket());
 	    entries.accept(ItemRegistry.EGG_SHELL);
 	    entries.accept(ItemRegistry.EGG_YOLK);
+
+	    entries.accept(ItemRegistry.MILK_POWDER);
         }
     }
 
