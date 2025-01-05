@@ -1,0 +1,16 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:yellow_dye"
+    },
+    {
+      "item": "create:dough"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_no_entities:egg_yolk"
+    }
+  ]
+}

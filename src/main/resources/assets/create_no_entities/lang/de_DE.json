@@ -1,0 +1,8 @@
+{
+  "item.create_no_entities.eggshell": "Eierschale",
+  "item.create_no_entities.egg_yolk": "Eigelb",
+  "item.create_no_entities.liquid_egg_bucket": "Flüssigeieimer",
+  "item.create_no_entities.milk_powder": "Milchpulver",
+  "block.create_no_entities.liquid_egg": "Flüssiges Ei",
+  "itemGroup.create_no_entities": "Create: Ohne Entities"
+}

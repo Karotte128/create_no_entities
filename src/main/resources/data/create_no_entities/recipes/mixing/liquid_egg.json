@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create_no_entities:egg_yolk"
+    },
+    {
+      "fluid": "minecraft:water",
+      "amount": 2025
+    }
+  ],
+  "results": [
+    {
+      "fluid": "create_no_entities:liquid_egg",
+      "amount": 2025
+    }
+  ]
+}
