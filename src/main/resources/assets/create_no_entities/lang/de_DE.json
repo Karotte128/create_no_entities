@@ -4,5 +4,5 @@
   "item.create_no_entities.liquid_egg_bucket": "Flüssigeieimer",
   "item.create_no_entities.milk_powder": "Milchpulver",
   "block.create_no_entities.liquid_egg": "Flüssiges Ei",
-  "itemGroup.create_no_entities": "Create: Ohne Entities"
+  "itemGroup.create_no_entities_tab": "Create: Ohne Entities"
 }
