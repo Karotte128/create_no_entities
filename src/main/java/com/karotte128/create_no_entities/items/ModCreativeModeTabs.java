@@ -2,6 +2,7 @@ package com.karotte128.create_no_entities.items;
 
 import com.karotte128.create_no_entities.CreateNoEntities;
 
+import com.karotte128.create_no_entities.fluids.ModFluids;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -22,6 +23,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.EGG_SHELL);
                         output.accept(ModItems.EGG_YOLK);
                         output.accept(ModItems.MILK_POWDER);
+                        output.accept(ModFluids.LIQUID_EGG_BUCKET);
                     })
                     .build());
 

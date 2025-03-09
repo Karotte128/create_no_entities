@@ -1,62 +1,48 @@
 package com.karotte128.create_no_entities.fluids;
 
-//import net.minecraft.core.registries.Registries;
-//import net.minecraft.network.chat.Component;
-//import net.minecraft.resources.ResourceLocation;
-//import net.minecraft.world.level.Level;
-//import net.minecraft.world.level.material.Fluid;
-//
-//import javax.annotation.Nullable;
-//
-//import static com.karotte128.create_no_entities.CreateNoEntities.REGISTRATE;
-//import static net.minecraft.world.item.Items.BUCKET;
-//
-//public class ModFluids {
-//
-//    public static final FluidEntry<SimpleFlowableFluid.Flowing> LIQUID_EGG =
-//            REGISTRATE.fluid("liquid_egg", new ResourceLocation("create_no_entities:block/liquid_egg_still"), new ResourceLocation("create_no_entities:block/liquid_egg_flow"))
-//                    .lang("Liquid_Egg")
-//                    .fluidAttributes(() -> new CreateAttributeHandler("block.create_no_entities.liquid_egg", 1500, 500))
-//                    .fluidProperties(p -> p.levelDecreasePerBlock(2)
-//                            .tickRate(25)
-//                            .flowSpeed(3)
-//                            .blastResistance(100f))
-//                    .source(SimpleFlowableFluid.Source::new)
-////                    .tag(AllTags.forgeFluidTag("liquid_egg"))
-//                    .onRegisterAfter(Registries.ITEM, plant -> {
-//                        Fluid source = plant.getSource();
-//
-//                        FluidStorage.combinedItemApiProvider(source.getBucket()).register(context ->
-//                                new FullItemFluidStorage(context, bucket -> ItemVariant.of(BUCKET), FluidVariant.of(source), FluidConstants.BUCKET));
-//                        FluidStorage.combinedItemApiProvider(BUCKET).register(context ->
-//                                new EmptyItemFluidStorage(context, bucket -> ItemVariant.of(source.getBucket()), source, FluidConstants.BUCKET));
-//                    })
-//                    .register();
-//
-//    public static void register() {}
-//
-//    private record CreateAttributeHandler(Component name, int viscosity, boolean lighterThanAir) implements FluidVariantAttributeHandler {
-//        private CreateAttributeHandler(String key, int viscosity, int density) {
-//            this(Component.translatable(key), viscosity, density <= 0);
-//        }
-//
-//        public CreateAttributeHandler(String key) {
-//            this(key, FluidConstants.WATER_VISCOSITY, 1000);
-//        }
-//
-//        @Override
-//        public Component getName(FluidVariant fluidVariant) {
-//            return name.copy();
-//        }
-//
-//        @Override
-//        public int getViscosity(FluidVariant variant, @Nullable Level world) {
-//            return viscosity;
-//        }
-//
-//        @Override
-//        public boolean isLighterThanAir(FluidVariant variant) {
-//            return lighterThanAir;
-//        }
-//    }
-//}
+import com.karotte128.create_no_entities.CreateNoEntities;
+import com.karotte128.create_no_entities.blocks.ModBlocks;
+import com.karotte128.create_no_entities.items.ModItems;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
+
+public class ModFluids {
+    public static final DeferredRegister<Fluid> FLUIDS =
+            DeferredRegister.create(BuiltInRegistries.FLUID, CreateNoEntities.MODID);
+
+    public static final Supplier<FlowingFluid> SOURCE_LIQUID_EGG = FLUIDS.register("source_liquid_egg",
+            () -> new BaseFlowingFluid.Source(ModFluids.LIQUID_EGG_PROPERTIES));
+    public static final Supplier<FlowingFluid> FLOWING_LIQUID_EGG = FLUIDS.register("flowing_liquid_egg",
+            () -> new BaseFlowingFluid.Flowing(ModFluids.LIQUID_EGG_PROPERTIES));
+
+    public static final DeferredBlock<LiquidBlock> LIQUID_EGG_BLOCK = ModBlocks.BLOCKS.register("liquid_egg_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_LIQUID_EGG.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).noLootTable()));
+    public static final DeferredItem<Item> LIQUID_EGG_BUCKET = ModItems.ITEMS.registerItem("liquid_egg_bucket",
+            properties -> new BucketItem(ModFluids.SOURCE_LIQUID_EGG.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
+
+    public static final BaseFlowingFluid.Properties LIQUID_EGG_PROPERTIES = new BaseFlowingFluid.Properties(
+            ModFluidTypes.LIQUID_EGG_FLUID_TYPE, SOURCE_LIQUID_EGG, FLOWING_LIQUID_EGG)
+            .slopeFindDistance(2).levelDecreasePerBlock(1)
+            .block(ModFluids.LIQUID_EGG_BLOCK).bucket(ModFluids.LIQUID_EGG_BUCKET);
+
+
+    public static void register(IEventBus eventBus) {
+
+        FLUIDS.register(eventBus);
+    }
+}
+
