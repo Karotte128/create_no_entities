@@ -1,43 +1,55 @@
 package com.karotte128.create_no_entities;
 
-import com.simibubi.create.Create;
-import com.simibubi.create.foundation.data.CreateRegistrate;
+//import com.karotte128.create_no_entities.fluids.ModFluids;
+import com.karotte128.create_no_entities.items.ModCreativeModeTabs;
+import com.karotte128.create_no_entities.items.ModItems;
+import com.mojang.logging.LogUtils;
 
-import io.github.fabricators_of_create.porting_lib.util.EnvExecutor;
-import net.fabricmc.api.ModInitializer;
-
-import net.minecraft.resources.ResourceLocation;
-
-
-import com.karotte128.create_no_entities.fluids.FluidRegistry;
-import com.karotte128.create_no_entities.items.ItemRegistry;
-
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-public class CreateNoEntities implements ModInitializer {
-	public static final String ID = "create_no_entities";
-	public static final String NAME = "Create: No Entities";
-	public static final Logger LOGGER = LoggerFactory.getLogger(NAME);
-	public static final CreateRegistrate REGISTRATE = CreateRegistrate.create("create_no_entities");
+	@Mod(CreateNoEntities.MODID)
+	public class CreateNoEntities {
+		public static final String MODID = "create_no_entities";
+		private static final Logger LOGGER = LogUtils.getLogger();
 
-	@Override
-	public void onInitialize() {
-		LOGGER.info("Create addon mod [{}] is loading alongside Create [{}]!", NAME, Create.VERSION);
-		LOGGER.info(EnvExecutor.unsafeRunForDist(
-				() -> () -> "{} is accessing Porting Lib from the client!",
-				() -> () -> "{} is accessing Porting Lib from the server!"
-		), NAME);
+		public CreateNoEntities(IEventBus modEventBus, ModContainer modContainer) {
+			modEventBus.addListener(this::commonSetup);
 
+			NeoForge.EVENT_BUS.register(this);
 
-		FluidRegistry.register();
-		ItemRegistry.register();
-		CreativeTab.register();
+			ModCreativeModeTabs.register(modEventBus);
+			ModItems.register(modEventBus);
+			//ModFluids.register(modEventBus);
 
-		REGISTRATE.register();
+			modEventBus.addListener(this::addCreative);
+		}
+
+		private void commonSetup(final FMLCommonSetupEvent event) {
+		}
+
+		private void addCreative(BuildCreativeModeTabContentsEvent event) {
+		}
+
+		@SubscribeEvent
+		public void onServerStarting(ServerStartingEvent event) {
+		}
+
+		@EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+		public static class ClientModEvents {
+			@SubscribeEvent
+			public static void onClientSetup(FMLClientSetupEvent event) {
+			}
+		}
+
 	}
-
-	public static ResourceLocation id(String path) {
-		return new ResourceLocation(ID, path);
-	}
-}
