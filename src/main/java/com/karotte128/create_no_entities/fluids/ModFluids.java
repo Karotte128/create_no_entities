@@ -24,7 +24,7 @@ public class ModFluids {
     public static final DeferredRegister<Fluid> FLUIDS =
             DeferredRegister.create(BuiltInRegistries.FLUID, CreateNoEntities.MODID);
 
-    public static final Supplier<FlowingFluid> SOURCE_LIQUID_EGG = FLUIDS.register("source_liquid_egg",
+    public static final Supplier<FlowingFluid> SOURCE_LIQUID_EGG = FLUIDS.register("liquid_egg",
             () -> new BaseFlowingFluid.Source(ModFluids.LIQUID_EGG_PROPERTIES));
     public static final Supplier<FlowingFluid> FLOWING_LIQUID_EGG = FLUIDS.register("flowing_liquid_egg",
             () -> new BaseFlowingFluid.Flowing(ModFluids.LIQUID_EGG_PROPERTIES));

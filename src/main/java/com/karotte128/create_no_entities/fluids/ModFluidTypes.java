@@ -18,7 +18,7 @@ public class ModFluidTypes {
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, CreateNoEntities.MODID);
 
-    public static final Supplier<FluidType> LIQUID_EGG_FLUID_TYPE = registerFluidType("liquid_egg_fluid",
+    public static final Supplier<FluidType> LIQUID_EGG_FLUID_TYPE = registerFluidType("liquid_egg",
             new BaseFluidType(LIQUID_EGG_STILL_RL, LIQUID_EGG_FLOWING_RL, LIQUID_EGG_OVERLAY_RL, 0xEEF4CA4E,
                     new Vector3f(244f / 255f, 202f / 255f, 78f / 255f),
                     FluidType.Properties.create()));
