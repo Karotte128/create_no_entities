@@ -5,14 +5,15 @@
       "item": "create_no_entities:egg_yolk"
     },
     {
-      "fluid": "minecraft:water",
-      "amount": 2025
+      "type": "fluid_stack",
+      "amount": 1000,
+      "fluid": "minecraft:water"
     }
   ],
   "results": [
     {
-      "fluid": "create_no_entities:liquid_egg",
-      "amount": 2025
+      "amount": 1000,
+      "id": "create_no_entities:liquid_egg"
     }
   ]
 }

@@ -10,7 +10,9 @@
   ],
   "results": [
     {
-      "item": "create_no_entities:egg_yolk"
+      "item": {
+        "id": "create_no_entities:egg_yolk"
+      }
     }
   ]
 }

@@ -5,14 +5,15 @@
       "item": "create_no_entities:milk_powder"
     },
     {
-      "fluid": "minecraft:water",
-      "amount": 81000
+      "type": "fluid_stack",
+      "amount": 1000,
+      "fluid": "minecraft:water"
     }
   ],
   "results": [
     {
-      "fluid": "milk:still_milk",
-      "amount": 81000
+      "amount": 1000,
+      "id": "minecraft:milk"
     }
   ]
 }

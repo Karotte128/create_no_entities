@@ -7,11 +7,13 @@
   ],
   "results": [
     {
-      "item": "create_no_entities:eggshell"
+      "item": {
+        "id": "create_no_entities:eggshell"
+      }
     },
     {
-      "fluid": "create_no_entities:liquid_egg",
-      "amount": 2025
+      "amount": 1000,
+      "id": "create_no_entities:liquid_egg"
     }
   ]
 }
