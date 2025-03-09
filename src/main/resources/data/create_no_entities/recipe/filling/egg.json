@@ -6,7 +6,7 @@
     },
     {
       "type": "fluid_stack",
-      "amount": 1000,
+      "amount": 25,
       "fluid": "create_no_entities:liquid_egg"
     }
   ],
