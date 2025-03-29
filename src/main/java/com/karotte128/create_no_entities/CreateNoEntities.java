@@ -1,6 +1,6 @@
 package com.karotte128.create_no_entities;
 
-//import com.karotte128.create_no_entities.fluids.FluidRegistry;
+import com.karotte128.create_no_entities.fluids.FluidRegistry;
 import com.karotte128.create_no_entities.items.ItemRegistry;
 
 import net.fabricmc.api.ModInitializer;
@@ -15,7 +15,7 @@ public class CreateNoEntities implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
-		//FluidRegistry.registerModFluids();
+		FluidRegistry.registerModFluids();
 		ItemRegistry.registerModItems();
 		CreativeTab.registerItemGroups();
 	}

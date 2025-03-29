@@ -1,5 +1,6 @@
 package com.karotte128.create_no_entities;
 
+import com.karotte128.create_no_entities.fluids.FluidRegistry;
 import com.karotte128.create_no_entities.items.ItemRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
@@ -19,6 +20,7 @@ public class CreativeTab {
                         entries.add(ItemRegistry.EGG_SHELL);
                         entries.add(ItemRegistry.EGG_YOLK);
                         entries.add(ItemRegistry.MILK_POWDER);
+                        entries.add(FluidRegistry.LIQUID_EGG_BUCKET);
                     }).build());
 
 
