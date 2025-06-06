@@ -20,6 +20,7 @@ public class CreativeTab {
                         entries.add(ItemRegistry.EGG_SHELL);
                         entries.add(ItemRegistry.EGG_YOLK);
                         entries.add(ItemRegistry.MILK_POWDER);
+                        entries.add(ItemRegistry.CALCIUM_POWDER)    ;
                         entries.add(FluidRegistry.LIQUID_EGG_BUCKET);
                     }).build());
 
