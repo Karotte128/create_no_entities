@@ -1,17 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "key": {
-    "C": {
-      "item": "create_no_entities:calcium_powder"
-    }
-  },
   "pattern": [
     "CCC",
     "CCC",
     "CCC"
   ],
+  "key": {
+    "C": {
+      "item": "create_no_entities:calcium_powder"
+    }
+  },
   "result": {
-    "item": "minecraft:calcite"
+    "id": "minecraft:calcite",
+    "count": 1
   }
 }

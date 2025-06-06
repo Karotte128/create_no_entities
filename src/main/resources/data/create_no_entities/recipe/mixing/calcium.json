@@ -3,8 +3,8 @@
   "heat_requirement": "superheated",
   "ingredients": [
     {
-    "type": "fluid_tag",
-    "amount": 250,
+    "type": "fluid_stack",
+    "amount": 1000,
     "fluid": "minecraft:water"
     }
   ],
