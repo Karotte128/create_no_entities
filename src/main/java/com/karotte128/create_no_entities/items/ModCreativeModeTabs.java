@@ -23,6 +23,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.EGG_SHELL);
                         output.accept(ModItems.EGG_YOLK);
                         output.accept(ModItems.MILK_POWDER);
+                        output.accept(ModItems.CALCIUM_POWDER);
                         output.accept(ModFluids.LIQUID_EGG_BUCKET);
                     })
                     .build());

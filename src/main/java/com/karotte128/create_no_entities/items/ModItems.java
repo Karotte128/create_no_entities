@@ -17,6 +17,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> MILK_POWDER = ITEMS.register("milk_powder",
             () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CALCIUM_POWDER = ITEMS.register("calcium_powder",
+            () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

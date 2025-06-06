@@ -1,0 +1,16 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create_no_entities:calcium_powder"
+    },
+    {
+      "item": "minecraft:wheat_seeds"
+    }
+  ],
+  "results": [
+    {
+      "id": "create_no_entities:milk_powder"
+    }
+  ]
+}
