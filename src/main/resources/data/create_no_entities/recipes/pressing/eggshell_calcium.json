@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "create_no_entities:calcium_powder"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_no_entities:eggshell"
+    }
+  ]
+}

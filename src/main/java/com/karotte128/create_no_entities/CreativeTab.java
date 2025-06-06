@@ -26,6 +26,8 @@ public class CreativeTab {
 	    entries.accept(ItemRegistry.EGG_YOLK);
 
 	    entries.accept(ItemRegistry.MILK_POWDER);
+
+        entries.accept(ItemRegistry.CALCIUM_POWDER);
         }
     }
 
