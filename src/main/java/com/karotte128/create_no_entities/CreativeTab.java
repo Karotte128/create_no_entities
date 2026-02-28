@@ -18,6 +18,7 @@ public class CreativeTab {
         output.accept(EGG_YOLK.get());
         output.accept(MILK_POWDER.get());
         output.accept(CALCIUM_POWDER.get());
+        output.accept(LIQUID_EGG_BUCKET.get());
     }).build());
 
 }
