@@ -1,21 +1,19 @@
 package com.karotte128.create_no_entities.items;
 
-import com.karotte128.create_no_entities.CreativeTab;
-import com.simibubi.create.content.equipment.extendoGrip.ExtendoGripItemRenderer;
-import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
-import static com.karotte128.create_no_entities.CreateNoEntities.REGISTRATE;
+import static com.karotte128.create_no_entities.CreateNoEntities.ID;
 
 public class ItemRegistry {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ID);
 
-    public static final ItemEntry<Item> EGG_SHELL = REGISTRATE.item("eggshell", Item::new).register();
-    public static final ItemEntry<Item> EGG_YOLK = REGISTRATE.item("egg_yolk", Item::new).register();
+    public static final RegistryObject<Item> EGG_SHELL = ITEMS.register("eggshell", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> EGG_YOLK = ITEMS.register("egg_yolk", () -> new Item(new Item.Properties()));
 
-    public static final ItemEntry<Item> MILK_POWDER = REGISTRATE.item("milk_powder", Item::new).register();
+    public static final RegistryObject<Item> MILK_POWDER = ITEMS.register("milk_powder", () -> new Item(new Item.Properties()));
 
-    public static final ItemEntry<Item> CALCIUM_POWDER = REGISTRATE.item("calcium_powder", Item::new).register();
-
-	public static void register() {}
+    public static final RegistryObject<Item> CALCIUM_POWDER = ITEMS.register("calcium_powder", () -> new Item(new Item.Properties()));
 }

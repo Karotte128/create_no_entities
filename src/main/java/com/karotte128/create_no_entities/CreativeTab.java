@@ -1,38 +1,23 @@
 package com.karotte128.create_no_entities;
 
-//import com.karotte128.create_no_entities.blocks.BlockRegistry;
-import com.karotte128.create_no_entities.fluids.FluidRegistry;
-import com.karotte128.create_no_entities.items.ItemRegistry;
-import com.simibubi.create.foundation.utility.Components;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
+
+import static com.karotte128.create_no_entities.CreateNoEntities.ID;
+import static com.karotte128.create_no_entities.items.ItemRegistry.*;
 
 public class CreativeTab {
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ID);
 
-    public static void register(){
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, "", BASE_CREATIVE_TAB);
-        ItemGroupEvents.MODIFY_ENTRIES_ALL.register(CreativeTab::make);
-    }
+    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("cne_tab", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EGG_SHELL.get().getDefaultInstance()).title(Component.translatable("itemGroup.create_no_entities_tab")).displayItems((parameters, output) -> {
+        output.accept(EGG_SHELL.get());
+        output.accept(EGG_YOLK.get());
+        output.accept(MILK_POWDER.get());
+        output.accept(CALCIUM_POWDER.get());
+    }).build());
 
-    private static void make(CreativeModeTab creativeModeTab, FabricItemGroupEntries entries) {
-        if (creativeModeTab == BASE_CREATIVE_TAB) {
-
-            entries.accept(FluidRegistry.LIQUID_EGG.get().getBucket());
-	    entries.accept(ItemRegistry.EGG_SHELL);
-	    entries.accept(ItemRegistry.EGG_YOLK);
-
-	    entries.accept(ItemRegistry.MILK_POWDER);
-
-        entries.accept(ItemRegistry.CALCIUM_POWDER);
-        }
-    }
-
-    public static final CreativeModeTab BASE_CREATIVE_TAB = FabricItemGroup.builder()
-                    .title(Components.translatable("itemGroup.create_no_entities"))
-                    .icon(ItemRegistry.EGG_SHELL::asStack)
-                    .build();
 }
